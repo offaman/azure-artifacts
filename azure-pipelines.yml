@@ -28,6 +28,10 @@ stages:
           inputs:
             command: "install"
           displayName: "Npm Install"
+        - task: CmdLine@2
+          inputs:
+            script: 'ls .'
+            workingDirectory: '.'
         - script: >
             npx semantic-release
           env: { GH_TOKEN: $(secrets.azure-artifacts) }
