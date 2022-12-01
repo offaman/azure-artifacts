@@ -180,7 +180,7 @@ jobs:
   #     workingDirectory: '.'
   - task: CmdLine@2
     inputs:
-      script: 'New_version=$(nextRelease)'
+      script: '$(New_version)=$(nextRelease)'
       workingDirectory: '.'
 
   - task: Npm@1
