@@ -29,4 +29,4 @@
 nextRelease="1.2.3"
 
 
-file_name="package.json" && mystr="$(grep "version" package.json)" && readarray -d ":" -t strarr<<<"$mystr" && strarr[-1]="\"$nextRelease\"," && new_version="${strarr[0]}: ${strarr[1]}" && echo $new_version && sed -i "s/$mystr/$new_version/" $file_name
+file_name="package.json" && mystr="$(grep "version" package.json)" && readarray -d ":" -t strarr<<<"$mystr" && strarr[-1]="\"$nextRelease\"," && new_version="${strarr[-2]}: ${strarr[-1]}" && echo $new_version && sed -i "s/$mystr/$new_version/" $file_name
