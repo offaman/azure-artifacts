@@ -155,7 +155,7 @@
 jobs:
 - job: Build
   pool:
-    vmImage: windows-latest
+    vmImage: ubuntu-latest
 
   steps:
   - task: Npm@1
@@ -171,24 +171,27 @@ jobs:
     env: { GH_TOKEN: $(GIT_ACCESS_TOKEN) }
     displayName: 'Semantic release'
 
+  - script: echo $(nextRelease)
+    displayName: 'Show next version'
+
 
   
+  - task: CmdLine@2
+    inputs:
+      script: 'p1="\"version"\" && p2=": " && p3="\"$nextRelease\"," && final_version=$p1$p2$p3 && file_name="package.json" && mystr="$(grep "version" package.json)" &&sed -i "s/$mystr/$final_version/" $file_name'
+    displayName: 'Changing npm version'
+
   # - task: CmdLine@2
   #   inputs:
-  #     script: 'set p1="\"version"\" && set p2=": " && set p3="%nextRelease%," && set final_version=$p1$p2$p3 && set file_name="package.json" && set mystr="$(grep "version" package.json)" && sed -i "s/$mystr/$final_version/" $file_name'
+  #     script: 'set New_version="%nextRelease%"'
   #     workingDirectory: '.'
-  - task: CmdLine@2
-    inputs:
-      script: 'set New_version="%nextRelease%"'
-      workingDirectory: '.'
     
-  - task: CmdLine@2
-    inputs:
-      script: 'bash code.bash'
-      workingDirectory: '.'
+  # - task: CmdLine@2
+  #   inputs:
+  #     script: 'bash code.bash'
+  #     workingDirectory: '.'
 
-  - script: 'p1=3 && echo $p1'
-    displayName: 'Show next version'
+  
 
   - task: Npm@1
     inputs:
