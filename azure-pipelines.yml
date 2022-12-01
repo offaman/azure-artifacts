@@ -157,7 +157,7 @@ jobs:
   pool:
     vmImage: windows-latest
 
-  # steps:
+  steps:
   # - task: Npm@1
   #   inputs:
   #     command: "install"
@@ -174,7 +174,7 @@ jobs:
   - script: echo $nextRelease
     displayName: 'Show next version'
 
-  
+
   - task: Bash@3
     inputs:
       filePath: 'code.bash'
