@@ -62,7 +62,7 @@ jobs:
 
   - task: CmdLine@2
     inputs:
-      script: 'npm version $(nextRelease)'
+      script: ' git add . && git commit -m "version updated" && npm version $(nextRelease)'
 
   - task: Npm@1
     inputs:
