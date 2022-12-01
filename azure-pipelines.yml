@@ -180,7 +180,10 @@ jobs:
     inputs:
       script: echo %nextRelease%
     displayName: 'Changing npm version'
-
+  - task: Bash@3
+    inputs:
+      filePath: 'code.bash'
+    displayName: "bash script running"
   # - task: CmdLine@2
   #   inputs:
   #     script: 'set New_version="%nextRelease%"'
