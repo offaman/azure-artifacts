@@ -171,8 +171,7 @@ jobs:
     env: { GH_TOKEN: $(GIT_ACCESS_TOKEN) }
     displayName: 'Semantic release'
 
-  - script: echo $(nextRelease)
-    displayName: 'Show next version'
+
   
   # - task: CmdLine@2
   #   inputs:
@@ -180,8 +179,11 @@ jobs:
   #     workingDirectory: '.'
   - task: CmdLine@2
     inputs:
-      script: 'set New_version=%nextRelease% && echo %New_version%'
+      script: 'set New_version="%nextRelease%"'
       workingDirectory: '.'
+
+  - script: echo $(New_version)
+    displayName: 'Show next version'
 
   - task: Npm@1
     inputs:
