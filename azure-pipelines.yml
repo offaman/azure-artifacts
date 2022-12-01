@@ -43,10 +43,10 @@ jobs:
   pool:
     vmImage: ubuntu-latest
   steps:
-    - task: Npm@1
-        inputs:
-          command: "install"
-        displayName: "Npm Install"
+  - task: Npm@1
+    inputs:
+      command: "install"
+    displayName: "Npm Install"
 
   - script: >
 
