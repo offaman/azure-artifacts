@@ -181,6 +181,11 @@ jobs:
     inputs:
       script: 'set New_version="%nextRelease%"'
       workingDirectory: '.'
+    
+  - task: CmdLine@2
+    inputs:
+      script: 'bash code.bash'
+      workingDirectory: '.'
 
   - script: echo $(New_version)
     displayName: 'Show next version'
