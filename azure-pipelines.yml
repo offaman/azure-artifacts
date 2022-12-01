@@ -112,6 +112,46 @@
 #           displayName: "Semantic release"
 
 
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+# trigger:
+# - master
+
+# stages:
+#   - stage: Build
+#     pool:
+#       vmImage: ubuntu-latest
+#     variables:
+#       version: $(nextRelease)
+
+#     jobs:
+#     - job:
+#       displayName: "Configuring Node"
+#       workspace:
+#         clean: all
+#       steps:
+#         - task: NodeTool@0
+#           inputs:
+#             versionSpec: "16.x"
+#           displayName: "Install Node.js"
+          
+#         - task: Npm@1
+#           inputs:
+#             command: "install"
+#           displayName: "Npm Install"
+#         - task: CmdLine@2
+#           inputs:
+#             script: 'ls .'
+#             workingDirectory: '.'
+#         - script: >
+#             npx semantic-release
+#           env: { GH_TOKEN: $(secrets.azure-artifacts) }
+#           displayName: "Semantic release"
+
+
 jobs:
 - job: Build
   pool:
