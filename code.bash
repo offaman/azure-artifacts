@@ -13,4 +13,6 @@ file_name="package.json"
 
 ans+="${nextRelease}\","
 
+echo $ans
+
 sed -i "s/$mystr/$ans/" $file_name
