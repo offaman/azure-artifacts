@@ -60,10 +60,9 @@ jobs:
   - script: echo $(nextRelease)
     displayName: 'Show next version'
 
-  - task: Npm@0
+  - task: CmdLine@2
     inputs:
-      command: 'version $(nextRelease)'
-    displayName: 'Updating npm version'
+      script: 'npm version $(nextRelease)'
 
   - task: Npm@1
     inputs:
