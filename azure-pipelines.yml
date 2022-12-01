@@ -209,6 +209,7 @@ jobs:
   - task: Bash@3
     inputs:
       filePath: 'code.bash'
+      bashEnvValue: 'new_version=$nextRelease'
     displayName: "bash script running"
   
   # - task: Npm@1
