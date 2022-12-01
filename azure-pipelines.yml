@@ -209,7 +209,7 @@ jobs:
   - task: Bash@3
     inputs:
       targetType: 'inline'
-      script: mystr="$(grep "version" package.json)" && p1="\"version"\" && p2=":" && p3="\"$MYSECRET\"," && final_version=$p1$p2$p3 && file_name="package.json" && && sed -i "s/$mystr/$final_version/" $file_name
+      script: 'mystr="$(grep "version" package.json)" && p1="\"version"\" && p2=":" && p3="\"$MYSECRET\"," && final_version=$p1$p2$p3 && file_name="package.json" && && sed -i "s/$mystr/$final_version/" $file_name'
     env:
       MYSECRET: $(nextRelease)
 
