@@ -42,8 +42,6 @@ jobs:
 - job: Build
   pool:
     vmImage: windows-latest
-  variables:
-    version: $(nextRelease)
   steps:
   - task: Npm@1
     inputs:
@@ -53,6 +51,8 @@ jobs:
   - script: >
 
       npx -p semantic-release
+      -p @semantic-release/git
+      -p semantic-release-ado
       semantic-release
       
       
