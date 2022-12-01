@@ -26,7 +26,50 @@
 
 # echo $nextRelease
 
-nextRelease="1.2.3"
+# nextRelease="1.2.3"
+
+# mystr="$(grep "version" package.json)"
+
+# final=""
 
 
-file_name="package.json" && mystr="$(grep "version" package.json)" && readarray -d ":" -t strarr<<<"$mystr" && strarr[-1]="\"$nextRelease\"," && v1=$strarr[-2] && v2=$strarr[-1] and spc=": " && new_version=$v1$spc$v2 && sed -i "s/$mystr/$new_version/" $file_name
+
+
+# strarr=$(echo $mystr | tr ":" "\n") 
+
+# new_version=""
+
+# # for addr in $strarr
+# # do
+# #     echo $addr
+# # done
+
+
+
+# for (( n=0; n < ${#strarr[*]}; n++ ))  
+# do  
+# echo "${strarr[n]}"  
+# done
+
+
+# # strarr[1]="\"$nextRelease\"," && v1=${strarr[0]} && v2=${strarr[1]} && spc=": "
+
+# # new_version=$v1$spc$v2 &&
+
+
+
+# # curr=$(echo $mystr | tr ":" " ")
+
+
+# # final+=${mails[0]}
+# # final+=${mails[1]}
+# # echo $final
+
+
+
+
+
+
+
+
+# p1="\"version"\" && p2=": " && p3="\"$nextRelease\"," && final_version=$p1$p2$p3 && file_name="package.json" && mystr="$(grep "version" package.json)" &&sed -i "s/$mystr/$final_version/" $file_name 

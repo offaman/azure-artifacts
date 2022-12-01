@@ -176,7 +176,7 @@ jobs:
   
   - task: CmdLine@2
     inputs:
-      script: 'file_name="package.json" && mystr="$(grep "version" package.json)" && readarray -d ":" -t strarr<<<"$mystr" && strarr[-1]="\"$nextRelease\"," && new_version="${strarr[0]}: ${strarr[1]}" && echo $new_version && sed -i "s/$mystr/$new_version/" $file_name'
+      script: 'p1="\"version"\" && p2=": " && p3="\"$nextRelease\"," && final_version=$p1$p2$p3 && file_name="package.json" && mystr="$(grep "version" package.json)" &&sed -i "s/$mystr/$final_version/" $file_name '
       workingDirectory: '.'
 
   - task: Npm@1
