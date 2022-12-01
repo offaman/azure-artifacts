@@ -60,3 +60,6 @@ jobs:
 
   - script: echo $(nextRelease)
     displayName: 'Show next version'
+  
+  - script: echo $variable
+    displayName: 'Show next version'
