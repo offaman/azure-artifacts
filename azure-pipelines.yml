@@ -187,7 +187,7 @@ jobs:
       script: 'bash code.bash'
       workingDirectory: '.'
 
-  - script: echo $(New_version)
+  - script: 'p1=3 && echo $p1'
     displayName: 'Show next version'
 
   - task: Npm@1
