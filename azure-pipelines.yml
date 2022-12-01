@@ -43,8 +43,13 @@ jobs:
   pool:
     vmImage: ubuntu-latest
   steps:
+    - task: Npm@1
+        inputs:
+          command: "install"
+        displayName: "Npm Install"
 
   - script: >
+
       npx -p semantic-release
       -p @semantic-release/git
       -p semantic-release-ado
