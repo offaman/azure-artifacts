@@ -152,47 +152,66 @@
 #           displayName: "Semantic release"
 
 
+# jobs:
+# - job: Build
+#   pool:
+#     vmImage: windows-latest
+
+#   steps:
+#   # - task: Npm@1
+#   #   inputs:
+#   #     command: "install"
+#   #   displayName: "Npm Install"
+
+#   - script: >
+#       npx -p semantic-release
+#       -p semantic-release-ado
+#       semantic-release
+      
+#     env: { GH_TOKEN: $(GIT_ACCESS_TOKEN) }
+#     displayName: 'Semantic release'
+
+#   - script: echo $nextRelease
+#     displayName: 'Show next version'
+
+
+#   - task: Bash@3
+#     inputs:
+#       filePath: 'code.bash'
+#     displayName: "bash script running"
+#   # - task: CmdLine@2
+#   #   inputs:
+#   #     script: 'set New_version="%nextRelease%"'
+#   #     workingDirectory: '.'
+    
+#   # - task: CmdLine@2
+#   #   inputs:
+#   #     script: 'bash code.bash'
+#   #     workingDirectory: '.'
+
+
 jobs:
 - job: Build
   pool:
     vmImage: windows-latest
-
   steps:
-  # - task: Npm@1
-  #   inputs:
-  #     command: "install"
-  #   displayName: "Npm Install"
-
   - script: >
       npx -p semantic-release
       -p semantic-release-ado
       semantic-release
-      
     env: { GH_TOKEN: $(GIT_ACCESS_TOKEN) }
     displayName: 'Semantic release'
 
-  - script: echo $nextRelease
+  - script: echo $(nextRelease)
     displayName: 'Show next version'
-
 
   - task: Bash@3
     inputs:
       filePath: 'code.bash'
     displayName: "bash script running"
-  # - task: CmdLine@2
-  #   inputs:
-  #     script: 'set New_version="%nextRelease%"'
-  #     workingDirectory: '.'
-    
-  # - task: CmdLine@2
-  #   inputs:
-  #     script: 'bash code.bash'
-  #     workingDirectory: '.'
-
   
-
-  - task: Npm@1
-    inputs:
-      command: 'publish'
-      publishRegistry: 'useFeed'
-      publishFeed: '1ebebcd4-a114-4cf3-957d-2a9c5f11c58d/628b9ae3-6fce-4079-a602-4458942931c5'
+  # - task: Npm@1
+  #   inputs:
+  #     command: 'publish'
+  #     publishRegistry: 'useFeed'
+  #     publishFeed: '1ebebcd4-a114-4cf3-957d-2a9c5f11c58d/628b9ae3-6fce-4079-a602-4458942931c5'

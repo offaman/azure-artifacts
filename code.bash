@@ -59,6 +59,6 @@
 # echo $New_version
 
 
-echo $nextRelease
+echo $(nextRelease)
 
 echo "running fine"
