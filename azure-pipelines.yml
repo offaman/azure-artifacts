@@ -157,11 +157,11 @@ jobs:
   pool:
     vmImage: windows-latest
 
-  steps:
-  - task: Npm@1
-    inputs:
-      command: "install"
-    displayName: "Npm Install"
+  # steps:
+  # - task: Npm@1
+  #   inputs:
+  #     command: "install"
+  #   displayName: "Npm Install"
 
   - script: >
       npx -p semantic-release
@@ -174,10 +174,7 @@ jobs:
   - script: echo $nextRelease
     displayName: 'Show next version'
 
-  - task: CmdLine@2
-    inputs:
-      script: echo %nextRelease%
-    displayName: 'Changing npm version'
+  
   - task: Bash@3
     inputs:
       filePath: 'code.bash'
