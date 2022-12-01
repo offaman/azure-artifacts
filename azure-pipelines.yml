@@ -62,7 +62,7 @@ jobs:
 
   - task: CmdLine@2
     inputs:
-      script: ' git add . && git commit -m "version updated" && npm version $(nextRelease)'
+      script: ' git config --global user.email "amanjangra.tech@gmail.com" && git config --global user.name "offaman" git add . && git commit -m "version updated" && npm version $(nextRelease)'
 
   - task: Npm@1
     inputs:
