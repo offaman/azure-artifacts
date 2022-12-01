@@ -45,7 +45,10 @@ jobs:
   steps:
 
   - script: >
-      npx semantic-release
+      npx -p semantic-release
+      -p @semantic-release/git
+      -p semantic-release-ado
+      semantic-release
       
       
     env: { GH_TOKEN: $(secrets.azure-artifacts) }
