@@ -57,8 +57,12 @@ jobs:
     env: { GH_TOKEN: $(GIT_ACCESS_TOKEN) }
     displayName: 'Semantic release'
 
-  - script: New_version=$(nextRelease)
+  - script: echo $(nextRelease)
     displayName: 'Show next version'
+  
+  - task: CmdLine@2
+    inputs:
+      script: 'New_version=$(nextRelease)'
 
   - task: CmdLine@2
     inputs:
