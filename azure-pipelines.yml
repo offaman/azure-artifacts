@@ -205,7 +205,6 @@ jobs:
   - script: echo $(nextRelease)
     displayName: 'Show next version'
 
-  - bash: 'echo $nextRelease'
 
   - task: Bash@3
     inputs:
@@ -213,6 +212,11 @@ jobs:
     displayName: "bash script running"
   
   # - task: Npm@1
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'drop'
+      publishLocation: 'Container'
   #   inputs:
   #     command: 'publish'
   #     publishRegistry: 'useFeed'
