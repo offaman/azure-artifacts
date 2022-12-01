@@ -171,7 +171,7 @@ jobs:
     env: { GH_TOKEN: $(GIT_ACCESS_TOKEN) }
     displayName: 'Semantic release'
 
-  - script: mystr="$(grep "version" package.json) && echo $mystr
+  - script: echo $nextRelease
     displayName: 'Show next version'
 
   - task: CmdLine@2
