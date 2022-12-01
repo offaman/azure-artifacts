@@ -1,8 +1,12 @@
 {
-        "plugins": [
-          ["semantic-release-ado", {
+    "branches": [
+        "master",
+        { "name": "beta", "channel": "beta", "prerelease": true }
+    ],
+    "plugins": [
+        ["semantic-release-ado", {
             "varName": "version",
             "setOnlyOnRelease": true
-          }]
-        ]
+        }]
+    ]
 }
