@@ -155,7 +155,7 @@
 jobs:
 - job: Build
   pool:
-    vmImage: ubuntu-latest
+    vmImage: windows-latest
 
   steps:
   - task: Npm@1
