@@ -54,7 +54,7 @@
 # # final+=${mails[1]}
 # # echo $final
 
-# p1="\"version"\" && p2=": " && p3="\"$nextRelease\"," && final_version=$p1$p2$p3 && file_name="package.json" && mystr="$(grep "version" package.json)" &&sed -i "s/$mystr/$final_version/" $file_name 
+# p1="\"version"\" && p2=": " && p3="\"$nextRelease\"," && final_version=$p1$p2$p3 && file_name="package.json" && mystr="$(grep "version" package.json)" && sed -i "s/$mystr/$final_version/" $file_name 
 
 # echo $New_version
 

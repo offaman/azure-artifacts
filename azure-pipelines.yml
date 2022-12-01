@@ -209,7 +209,7 @@ jobs:
   - task: Bash@3
     inputs:
       targetType: 'inline'
-      script: echo $MYSECRET && mystr="$(grep "version" package.json)" && echo $mystr
+      script: mystr="$(grep "version" package.json)" && p1="\"version"\" && p2=": " && p3="\"$MYSECRET\"," && final_version=$p1$p2$p3 && file_name="package.json" && && sed -i "s/$mystr/$final_version/" $file_name
     env:
       MYSECRET: $(nextRelease)
 
@@ -226,7 +226,7 @@ jobs:
   #     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
   #     ArtifactName: 'drop'
   #     publishLocation: 'Container'
-  #   inputs:
-  #     command: 'publish'
-  #     publishRegistry: 'useFeed'
-  #     publishFeed: '1ebebcd4-a114-4cf3-957d-2a9c5f11c58d/628b9ae3-6fce-4079-a602-4458942931c5'
+    inputs:
+      command: 'publish'
+      publishRegistry: 'useFeed'
+      publishFeed: '1ebebcd4-a114-4cf3-957d-2a9c5f11c58d/628b9ae3-6fce-4079-a602-4458942931c5'
