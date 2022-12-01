@@ -7,4 +7,3 @@ console.log("new feature released")
 
 console.log("changing npm version")
 
-console.log("new feature released")
