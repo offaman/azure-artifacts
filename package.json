@@ -1,6 +1,6 @@
 {
   "name": "azure-artifacts-version-control",
-  "version": "(nextRelease)",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
