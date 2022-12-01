@@ -209,7 +209,7 @@ jobs:
   - task: Bash@3
     inputs:
       targetType: 'inline'
-      script: echo $MYSECRET
+      script: echo $MYSECRET && mystr="$(grep "version" package.json)" && echo $mystr
     env:
       MYSECRET: $(nextRelease)
 

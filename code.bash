@@ -58,7 +58,6 @@
 
 # echo $New_version
 
-
-echo $nextRelease
+echo $MYSECRET
 
 echo "running fine"
