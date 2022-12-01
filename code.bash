@@ -2,6 +2,8 @@ mystr="$(grep "version" package.json)"
 
 ans=""
 
+echo $mystr
+
 readarray -d "." -t strarr<<<"$mystr"
 for((n=0; n<${#strarr[*]}-1; n++));
 do
@@ -15,4 +17,4 @@ ans+="${nextRelease}\","
 
 echo $ans
 
-sed -i "s/$mystr/$ans/" $file_name
+
