@@ -1,10 +1,12 @@
 {
-    "branches": [
-        "master","next"],
-    "plugins": [
-        ["semantic-release-ado", {
-            "varName": "version",
-            "setOnlyOnRelease": true
-        }]
+    "branches": ["master","next"],
+    
+    "plugins": ["@semantic-release/commit-analyzer",
+            "@semantic-release/release-notes-generator",
+            "@semantic-release/npm",
+            ["semantic-release-ado", {
+                "varName": "version",
+                "setOnlyOnRelease": true
+              }]
     ]
 }
