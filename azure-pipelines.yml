@@ -50,9 +50,7 @@ jobs:
     displayName: "Npm Install"
 
   - script: >
-
       npx -p semantic-release
-      -p @semantic-release/git
       -p semantic-release-ado
       semantic-release
       
