@@ -205,6 +205,8 @@ jobs:
   - script: echo $(nextRelease)
     displayName: 'Show next version'
 
+  - bash: 'echo $nextRelease'
+
   - task: Bash@3
     inputs:
       filePath: 'code.bash'
