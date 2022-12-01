@@ -1,5 +1,5 @@
 {
-  "name": "azure-artifacts-version-control",
+  "name": "@offaman_22/azure-artifacts-version-control",
   "version": "0.0.0-development",
   "description": "",
   "main": "index.js",
