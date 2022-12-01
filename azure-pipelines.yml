@@ -1,3 +1,77 @@
+# # Starter pipeline
+# # Start with a minimal pipeline that you can customize to build and deploy your code.
+# # Add steps that build, run tests, deploy, and more:
+# # https://aka.ms/yaml
+
+# # trigger:
+# # - master
+
+# # stages:
+# #   - stage: Build
+# #     pool:
+# #       vmImage: ubuntu-latest
+# #     variables:
+# #       version: $(nextRelease)
+
+# #     jobs:
+# #     - job:
+# #       displayName: "Configuring Node"
+# #       workspace:
+# #         clean: all
+# #       steps:
+# #         - task: NodeTool@0
+# #           inputs:
+# #             versionSpec: "16.x"
+# #           displayName: "Install Node.js"
+          
+# #         - task: Npm@1
+# #           inputs:
+# #             command: "install"
+# #           displayName: "Npm Install"
+# #         - task: CmdLine@2
+# #           inputs:
+# #             script: 'ls .'
+# #             workingDirectory: '.'
+# #         - script: >
+# #             npx semantic-release
+# #           env: { GH_TOKEN: $(secrets.azure-artifacts) }
+# #           displayName: "Semantic release"
+
+
+# jobs:
+# - job: Build
+#   pool:
+#     vmImage: windows-latest
+
+#   steps:
+#   - task: Npm@1
+#     inputs:
+#       command: "install"
+#     displayName: "Npm Install"
+
+#   - script: >
+#       npx -p semantic-release
+#       -p semantic-release-ado
+#       semantic-release
+      
+#     env: { GH_TOKEN: $(GIT_ACCESS_TOKEN) }
+#     displayName: 'Semantic release'
+
+#   - script: echo $(nextRelease)
+#     displayName: 'Show next version'
+
+#   - task: CmdLine@2
+#     inputs:
+#       script: 'bash code.bash'
+
+#   - task: Npm@1
+#     inputs:
+#       command: 'publish'
+#       publishRegistry: 'useFeed'
+#       publishFeed: '1ebebcd4-a114-4cf3-957d-2a9c5f11c58d/628b9ae3-6fce-4079-a602-4458942931c5'
+
+
+
 # Starter pipeline
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
@@ -57,12 +131,13 @@ jobs:
     env: { GH_TOKEN: $(GIT_ACCESS_TOKEN) }
     displayName: 'Semantic release'
 
-  - script: New_version=$(nextRelease)
+  - script: echo $(nextRelease)
     displayName: 'Show next version'
-
+  
   - task: CmdLine@2
     inputs:
-      script: 'bash code.bash'
+      script: 'file_name="package.json" && mystr="$(grep "version" package.json)" && readarray -d ":" -t strarr<<<"$mystr" && strarr[-1]="\"$nextRelease\"," && new_version="${strarr[0]}: ${strarr[1]}" && echo $new_version && sed -i "s/$mystr/$new_version/" $file_name'
+      workingDirectory: '.'
 
   - task: Npm@1
     inputs:
