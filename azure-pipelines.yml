@@ -59,3 +59,9 @@ jobs:
 
   - script: echo $(nextRelease)
     displayName: 'Show next version'
+
+  - task: Npm@1
+    inputs:
+      command: 'publish'
+      publishRegistry: 'useFeed'
+      publishFeed: '1ebebcd4-a114-4cf3-957d-2a9c5f11c58d/628b9ae3-6fce-4079-a602-4458942931c5'
